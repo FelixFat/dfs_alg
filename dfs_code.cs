@@ -1,6 +1,6 @@
 /*
- * NAME: Фаталиев Даниил Андреевич
- * TITL: Реализация нахождения среднего пути между вершинами графа
+ * NAME: Р¤Р°С‚Р°Р»РёРµРІ Р”Р°РЅРёРёР» РђРЅРґСЂРµРµРІРёС‡
+ * TITL: Р РµР°Р»РёР·Р°С†РёСЏ РЅР°С…РѕР¶РґРµРЅРёСЏ СЃСЂРµРґРЅРµРіРѕ РїСѓС‚Рё РјРµР¶РґСѓ РІРµСЂС€РёРЅР°РјРё РіСЂР°С„Р°
  * DATE: 24.03.2019
  */
 
@@ -9,10 +9,10 @@ using System.Collections.Generic;
 
 namespace Kursach_1371
 {
-    class СProgram
+    class РЎProgram
     {
-        // Поиск в глубину
-        public static double DFS(СNode node, СNode parent)
+        // РџРѕРёСЃРє РІ РіР»СѓР±РёРЅСѓ
+        public static double DFS(CNode node, CNode parent)
         {
             node.m_routes_out = 1;
             double result = 0;
@@ -37,12 +37,12 @@ namespace Kursach_1371
             return result;
         }
 
-        // Ввод и обработка входных значений; вычисление и вывод конечного ответа
+        // Р’РІРѕРґ Рё РѕР±СЂР°Р±РѕС‚РєР° РІС…РѕРґРЅС‹С… Р·РЅР°С‡РµРЅРёР№; РІС‹С‡РёСЃР»РµРЅРёРµ Рё РІС‹РІРѕРґ РєРѕРЅРµС‡РЅРѕРіРѕ РѕС‚РІРµС‚Р°
         public static void Main()
         {
             int number_of_points = int.Parse(Console.ReadLine());
-            СNode[] nodes = new СNode[50001];
-            for (int i = 0; i < 50001; i++) nodes[i] = new СNode();
+            CNode[] nodes = new CNode[50001];
+            for (int i = 0; i < 50001; i++) nodes[i] = new CNode();
 
             for (int i = 0; i < number_of_points - 1; i++)
             {
@@ -51,8 +51,8 @@ namespace Kursach_1371
                 int point_2 = int.Parse(entry[1]);
                 int time = int.Parse(entry[2]);
 
-                var tuple_1 = new Tuple<int, СNode>(time, nodes[point_2]);
-                var tuple_2 = new Tuple<int, СNode>(time, nodes[point_1]);
+                var tuple_1 = new Tuple<int, CNode>(time, nodes[point_2]);
+                var tuple_2 = new Tuple<int, CNode>(time, nodes[point_1]);
                 nodes[point_1].m_branches.Add(tuple_1);
                 nodes[point_2].m_branches.Add(tuple_2);
             }
@@ -65,11 +65,11 @@ namespace Kursach_1371
         }
     }
 
-    // Узел от которого строятся пути к другим узлам
-    public class СNode
+    // РЈР·РµР» РѕС‚ РєРѕС‚РѕСЂРѕРіРѕ СЃС‚СЂРѕСЏС‚СЃСЏ РїСѓС‚Рё Рє РґСЂСѓРіРёРј СѓР·Р»Р°Рј
+    public class РЎNode
     {
         public double m_routes_in;
         public double m_routes_out;
-        public List<Tuple<int, СNode>> m_branches = new List<Tuple<int, СNode>>();
+        public List<Tuple<int, CNode>> m_branches = new List<Tuple<int, CNode>>();
     }
 }
