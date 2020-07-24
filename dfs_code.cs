@@ -7,7 +7,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Kursach_1371
+namespace Problem_1371
 {
     class СProgram
     {
